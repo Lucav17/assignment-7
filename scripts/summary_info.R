@@ -1,5 +1,3 @@
-library(dplyr)
-
 summary_info <- function(data) {
   summary <- list()
   # Number of people surveyed

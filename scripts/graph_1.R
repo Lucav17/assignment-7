@@ -35,7 +35,7 @@ graph_1 <- function(dataset) {
     name = "Maybe Will Apply"
   ) %>% layout(xaxis = list(title = "School Year"),
                yaxis = list(title = "Number of People"),
-               title = "Number of People Applying For Informatics Vs School Year")
+               title = "School Year Vs Applying For Informatics")
   ##return the graph to be plotted
   return(maybe_graph)
 }

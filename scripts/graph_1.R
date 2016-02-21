@@ -13,10 +13,10 @@ graph_1 <- function(dataset) {
   
   ##Create a bar graph that groups applying decisions by grade.
   yes_graph <- plot_ly(data,
-                 x = Grade,
-                 y = Yes,
-                 type = "bar",
-                 name = "Will Apply"
+    x = Grade,
+    y = Yes,
+    type = "bar",
+    name = "Will Apply"
   )
   
   no_graph <- add_trace(

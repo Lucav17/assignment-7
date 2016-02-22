@@ -1,0 +1,27 @@
+---
+title: "index"
+output: html_document
+---
+#INFO 498F Survey Results
+In the first week of this class, students were given a survey just so the professor/TAs could gauge the student's experience with relevant class content.
+
+```{r echo=FALSE, message=F, warning=F}
+
+source("scripts/graph_1.R")
+source("scripts/summary_info.R")
+
+data <- read.csv("https://raw.githubusercontent.com/INFO-498F/a7-survey-data/master/intro_survey_data.csv")
+
+first_graph <- graph_1(data)
+
+summary <- summary_info(data)
+```
+
+##Summary of the results
+
+In total, `r summary$num_surveyed` students responded to the survey. Out of those `r summary$num_surveyed` students, `r summary$num_interested_in_info` (`r round(((summary$num_interested_in_info / summary$num_surveyed) * 100), digits = 1)`%) are interested in applying to the Informatics major at the University of Washington. Students were also asked with Operating System they use with `r summary$num_windows` students using Windows, `r summary$num_mac` using MAC, and `r summary$num_linux` using linux. Although this is a coding class mainly using the R language, `r summary$num_never_used_R` students have never programmed using R. As an offtopic question, the battle of the pets ensued, with `r summary$num_dog_people` saying they prefer dogs and `r summary$num_cat_people` prefer cats.
+
+##Interest in INFO by class standing chart
+
+This bar chart represents the number of people who said they are interested in the Informatics major, comparing it by class standing.
+`r first_graph`

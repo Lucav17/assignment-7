@@ -1,19 +1,26 @@
 ---
-title: "index"
+title: "INFO 498F Survey Results"
 output: html_document
 ---
-#INFO 498F Survey Results
 In the first week of this class, students were given a survey just so the professor/TAs could gauge the student's experience with relevant class content.
 
 ```{r echo=FALSE, message=F, warning=F}
 
+#Loads the functions from other R files
 source("scripts/graph_1.R")
+source("scripts/graph_2.R")
 source("scripts/summary_info.R")
 
+#Reads in the data for the conducted survey
 data <- read.csv("https://raw.githubusercontent.com/INFO-498F/a7-survey-data/master/intro_survey_data.csv")
 
-first_graph <- graph_1(data)
+#Makes a bar chart of the interest in INFO data
+info_interest_graph <- graph_1(data)
 
+#Makes a dot chart of OS usage in the class
+operating_software_distribution <- graph_2(data)
+
+#A list of summary data of the survey. Is used in the markdown to show its summarized results
 summary <- summary_info(data)
 ```
 
@@ -23,5 +30,11 @@ In total, `r summary$num_surveyed` students responded to the survey. Out of thos
 
 ##Interest in INFO by class standing chart
 
-This bar chart represents the number of people who said they are interested in the Informatics major, comparing it by class standing.
-`r first_graph`
+This bar chart represents the number of people who said they are interested in the Informatics major, comparing it by class standing. Hovering over the bars will display the interest numbers for the respective class the user is hovering over.
+`r info_interest_graph`
+
+##OS that students use
+
+This dot chart shows which OS students in the class are using, by class standing. Hovering over the dot will display the class, and the number of students who use that OS.
+
+`r operating_software_distribution`
